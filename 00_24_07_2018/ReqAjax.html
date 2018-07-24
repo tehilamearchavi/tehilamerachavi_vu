@@ -1,12 +1,16 @@
+ 
+</html>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
+
 <script>
   function randfunc(){
+      let num= Math.floor(Math.random() * 250);
     fetch("https://restcountries.eu/rest/v2/all?fields=name")
-    .then(res=> res.json())
-    .then(content => {return content[ Math.floor(Math.random() * 250)].name})
+    .then(res=>{return res.json()})
+    .then(content => {return content[num].name})
     .then(res=> { fetch(`https://restcountries.eu/rest/v2/name/${res}`)
       .then(res=>res.json())
       .then(content=>{
